@@ -1,11 +1,3 @@
-document.getElementById("app").innerHTML = `
-<h1>Hello Parcel!</h1>
-<div>
-   for more info about Parcel.
-</div>
-`;
-
-
 function onTestChange() {
   var key = window.event.keyCode;
 
