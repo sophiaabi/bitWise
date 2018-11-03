@@ -1,19 +1,22 @@
 <html>
-	<link rel="stylesheet" href="styles.css">
-
+	<link rel="stylesheet" href="styles.css" />
 <head>
 	<title>Parcel Sandbox</title>
 	<meta charset="UTF-8" />
+	<script src="jquery-3.3.1.min.js"/>
+	<script src="index.js"></script>
+	<script src="parse.js"></script>
 </head>
 
 <body>
-	<div id="app" class="app test">123</div>
-	<div id="app" class="app">456</div>
-	<div id="app" class="test">789</div>
-	<textarea id="textbox" onkeypress="onTestChange();"></textarea>
+	<textarea id="textbox" onkeyup="onKeyTyped();"></textarea>
 
-	<script src="index.js"></script>
-	
+	<div id="results">
+		Arguments Found: <span id="argCountSpan">N/A</span><br/>
+		Operator Found: <span id="operatorSpan">N/A</span><br/>
+		Result: <span id="resultSpan">N/A</span>
+	</div>
+
+
 </body>
-
 </html>
