@@ -1,8 +1,11 @@
-.app {
-	color: blue;
+.result {
+	font-weight: bold;
 }
 
-.test {
-	margin: 50px;
+[truthy="true"] {
+	color: green;
+}
 
+[truthy="false"] {
+	color: red;
 }

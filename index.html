@@ -11,10 +11,15 @@
 <body>
 	<textarea id="textbox" onkeyup="onKeyTyped();"></textarea>
 
-	<div id="results">
-		Arguments Found: <span id="argCountSpan">N/A</span><br/>
-		Operator Found: <span id="operatorSpan">N/A</span><br/>
-		Result: <span id="resultSpan">N/A</span>
+	<div>
+		Arguments Found: <span id="argDebugSpan">N/A</span><br/>
+		Operator Found: <span id="operatorDebugSpan">N/A</span>
+	</div>
+	Result: 
+	<div style="margin-top: 10px;" id="resultDiv">
+		<span id="firstIntSpan" truthy="false"></span>
+		<span id="operatorSpan"></span>
+		<span id="secondIntSpan" truthy="false"></span> = <span id="resultSpan" class="result" truthy="false">N/A</span>
 	</div>
 
 
