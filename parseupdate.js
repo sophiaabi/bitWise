@@ -147,8 +147,8 @@ function findBinarySolution(operatorString, firstInt, secondInt) {
       return (firstInt << secondInt).tostring(2);
     case '>>': 
       return (firstInt >> secondInt).tostring(2);
-    case '>>>': 
-      return (firstInt >>> secondInt).tostring(2);
+    // case '>>>': 
+    //   return (firstInt >>> secondInt).tostring(2);
     case '^':
       return (firstInt ^ secondInt).tostring(2);
     default:
