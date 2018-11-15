@@ -32,10 +32,8 @@ app.use(session({
 }));
 app.use(flash());
 
-var index = require('./routes/index');
-var store = require('./routes/store');
+var index = require('./index');
 app.use('/', index);
-app.use('/store', store);
 
 var port = process.env.PORT;
 app.listen(port, function () {
