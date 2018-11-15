@@ -3,6 +3,7 @@
 
 var express = require('express');
 var app = express();
+app.set('view engine', 'html');
 
 var expressValidator = require('express-validator');
 app.use(expressValidator());
