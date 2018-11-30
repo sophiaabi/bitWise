@@ -1,0 +1,46 @@
+<style>
+
+body {
+  background-color: black;
+  margin: 10px;
+}
+
+#nums {
+  position: absolute;
+  color: lime;
+  margin-top: 100px;
+  margin-left: 100px;
+  float: left;
+}
+
+.cover {
+  position: absolute;
+  margin-top: 120px;
+  margin-left: 300px;
+  padding: 20px;
+  padding-right: 200px;
+  z-index: 1;
+  float: left;
+  border: 3px solid;
+  border-color: red;
+
+  animation-duration: cov_mov 2s;
+  animation-direction: reverse;
+}
+
+
+</style>
+
+<html>
+  <head>
+    <title>Test Page</title>
+  </head>
+
+  <body>
+    <div id="nums">
+      <h1>1 2 3 4 5 6 7 8</h1>
+    </div>
+    <div class="cover"></div>
+    <div id="test"></div>
+  </body>
+</html>

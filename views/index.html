@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css"href="style.css">
+    <!-- <script src="script.js"></script> -->
+    <script src="../parse.js"></script>
+    <script src="../index.js"></script>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script src="../server.js"></script>
+  </head>
+  <body>
+    <header>
+    </header>
+
+    <div class="navigation">
+      <textarea id="textbox" onkeyup="onKeyTyped();" placeholder="Enter an Expression" rows="0"></textarea>
+      <a href="#" class="active">Home</a>
+      <a href="#">Popular</a>
+      <a href="#">Recent</a>
+      <a href="#">About</a>
+    </div>
+
+    <div class="inputs">
+      <div id="display1">
+        Your first value is:
+        <span id="argSpan1">N/A</span><br/>
+        Its binary representaions is:
+        <span id="argSpanB1">N/A</span>
+      </div></br>
+      <div id="display2">
+        Your second value is:
+        <span id="argSpan2">N/A</span><br/>
+        Its binary representaions is:
+        <span id="argSpanB2">N/A</span>
+      </div></br>
+      <div id="op">
+        The operator is:
+        <span id="operatorSpan">N/A</span>
+        <span id="opname">N/A</span>
+      </div></br></br>
+    </div>
+
+    <div class="function">
+      <div>
+        <select id="operator">
+          <option value="&">&</option>
+          <option value="|">|</option>
+          <option value="^">^</option>
+          <option value="~">~</option>
+        </select>
+      </div>
+
+      <div style="margin-left: 10px">
+        <input type="text" id="n1" value: "1100"></input><br/>
+        <input type="text" id="n2" value: "0101"></input>
+        <div id="output">10101111</div>
+      </div>
+
+      <!-- <div style="margin-top: 10px;" id="resultDiv">
+    		<span id="firstIntSpan" truthy="false"></span>
+    		<span id="operatorSpan"></span>
+    		<span id="secondIntSpan" truthy="false"></span> = <span id="resultSpan" class="result" truthy="false">N/A</span>
+    	</div> -->
+    </div>
+
+    <div class="footer">
+      <b>BitW1se:</b> The bitwise fucntion visualizer
+    </div>
+
+  </body>
+
+
+</html>
