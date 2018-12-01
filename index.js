@@ -20,4 +20,8 @@ app.get('/', function (request, response) {
    response.render('index', {title: 'fuck'})
 });
 
+function showhide(id) {
+       	var e = document.getElementById(id);
+       	e.style.display = (e.style.display == 'block') ? 'none' : 'block';
+}
 module.exports = app;
