@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html>
-	<link rel="stylesheet" href="../styles.css">
-
+	<link rel="stylesheet" href="/public/styles.css">
+	<link rel="stylesheet" href="/public/awesomplete.css" />
 <head>
-	<title>Parcel Sandbox</title>
+	<title>Bitwise.</title>
 	<meta charset="UTF-8" />
-	<script src="../jquery-3.3.1.min.js"/>
-	<script src="../index.js"></script>
-	<script src="../parse.js"></script>
-	<script src="../server.js"></script>
+	<script src="/public/jquery-3.3.1.min.js"></script>
+	<script src="/public/awesomplete.js" async></script>
+
 </head>
 
 <body>
-	<textarea id="textbox" onkeyup="onKeyTyped();"></textarea>
-
-	<div>
-		Arguments Found: <span id="argDebugSpan">N/A</span><br/>
-		Operator Found: <span id="operatorDebugSpan">N/A</span>
-	</div>
-	Result: 
+	<input class="awesomplete" list="mylist" id="textbox"/>
+	<datalist id="mylist">
+		<option>Ada</option>
+		<option>Java</option>
+		<option>JavaScript</option>
+		<option>Brainfuck</option>
+		<option>LOLCODE</option>
+		<option>Node.js</option>
+		<option>Ruby on Rails</option>
+	</datalist>
 	<div style="margin-top: 10px;" id="resultDiv">
-		<span id="firstIntSpan" truthy="false"></span>
-		<span id="operatorSpan"></span>
-		<span id="secondIntSpan" truthy="false"></span> = <span id="resultSpan" class="result" truthy="false">N/A</span>
+		<span id="resultSpan" class="result" truthy="false">N/A</span>
 	</div>
 
-	<script src="../index.js"></script>
-	<script src="../server.js"></script>
 </body>
+	<script src="../public/parse.js"></script>
 </html>
