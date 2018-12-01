@@ -28,10 +28,12 @@ function areArgsValid(argList) {
   }
   if (argList.length === 3 && DECIMAL_REGEX.test(argList[0]) && DECIMAL_REGEX.test(argList[2])) {
     argSpan1.textContent = `${argList[0]}`;
-    argSpanB1.textContent = addLeadingZeroes((+argList[0]).toString(2));  //binary rep
+    var B1 = addLeadingZeroes(argList[0]);  //binary rep
+    argSpanB1.textContent = B1;
 
     argSpan2.textContent = `${argList[2]}`;
-    argSpanB2.textContent = addLeadingZeroes((+argList[2]).toString(2));  //bimary rep
+    var B2 = addLeadingZeroes(argList[2]);  //bimary rep
+    argSpanB2.textContent = B2;
     return true;
   }
 
@@ -72,8 +74,8 @@ function updateResultDiv(argList, isSolvable) {
 
     operatorSpan.textContent = operator;
 
-    firstIntSpan.textContent = firstInt; firstIntSpan.setAttribute('truthy', String(!!firstInt));
-    secondIntSpan.textContent = secondInt; secondIntSpan.setAttribute('truthy', String(!!secondInt));
+    firstIntSpan.textContent = addLeadingZeroes(firstInt); firstIntSpan.setAttribute('truthy', String(!!firstInt));
+    secondIntSpan.textContent = addLeadingZeroes(secondInt); secondIntSpan.setAttribute('truthy', String(!!secondInt));
     resultSpan.textContent = result; resultSpan.setAttribute('truthy', String(!!result));
 
     // resultDiv.style.display = 'block';
@@ -86,10 +88,10 @@ function updateResultDiv(argList, isSolvable) {
 function findUnarySolution(operatorString, firstInt) {
   switch (operatorString) {
     case '~':
-      opname.textContent = " NOT";
+      opname.textContent = "   NOT";
       return ~firstInt;
     case '!':
-      opname.textContent = " BINARY NOT";
+      opname.textContent = "   BINARY NOT";
       return !firstInt;
     default:
       throw `Unary Parsing Failed. Op: {${operatorString}}. Arg: {${firstInt}}`;
@@ -99,28 +101,28 @@ function findUnarySolution(operatorString, firstInt) {
 function findBinarySolution(operatorString, firstInt, secondInt) {
   switch (operatorString) {
     case '&':
-      opname.textContent = " AND";
+      opname.textContent = "   AND";
       return firstInt & secondInt;
     case '&&':
-      opname.textContent = " LOGICAL AND";
+      opname.textContent = "   LOGICAL AND";
       return firstInt && secondInt;
     case '|':
-      opname.textContent = " OR";
+      opname.textContent = "   OR";
       return firstInt | secondInt;
     case '||':
-      opname.textContent = " LOGICAL OR";
+      opname.textContent = "   LOGICAL OR";
       return firstInt || secondInt;
     case '<<':
-      opname.textContent = " LEFT SHIFT";
+      opname.textContent = "   LEFT SHIFT";
       return firstInt << secondInt;
     case '>>':
-      opname.textContent = " ARITHMETIC RIGHT SHIFT";
+      opname.textContent = "   ARITHMETIC RIGHT SHIFT";
       return firstInt >> secondInt;
     case '>>>':
-      opname.textContent = " LOGICAL RIGHT SHIFT";
+      opname.textContent = "   LOGICAL RIGHT SHIFT";
       return firstInt >>> secondInt;
     case '^':
-      opname.textContent = " XOR";
+      opname.textContent = "   XOR";
       return firstInt ^ secondInt;
     default:
       throw `Binary Parsing Failed. Op: {${operatorString}}. Args: {${firstInt}, ${secondInt}}`;
@@ -128,34 +130,27 @@ function findBinarySolution(operatorString, firstInt, secondInt) {
 }
 
 function addLeadingZeroes(binValue) {
-  console.log(binValue);
-  console.log(typeof(binValue)); //string
-  console.log(binValue.length);
+  // console.log(binValue);
+  // console.log(typeof(binValue)); //string
+  // console.log(binValue.length);
 
+  binValue = ((+binValue).toString(2));
   switch (binValue.length % 8) {
     case 0:
-      console.log("worked");
       return binValue;
     case 1:
-      console.log("worked");
       return "0000000" + binValue;
     case 2:
-      console.log("worked");
       return "000000" + binValue;
     case 3:
-      console.log("worked");
       return "00000" + binValue;
     case 4:
-      console.log("worked");
       return "0000" + binValue;
     case 5:
-      console.log("worked");
       return "000" + binValue;
     case 6:
-      console.log("worked");
       return "00" + binValue;
     case 7:
-      console.log("worked");
       return "0" + binValue;
     default:
       console.log("Ya done goofed");
