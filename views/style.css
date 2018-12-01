@@ -89,25 +89,24 @@ header {
 {
 		height:50px;
 		position:fixed;
-		bottom:3%;
-		right:5%;
-		max-height:5%;
-			
-			
+		bottom:-0.3%;
+		right:4%;
+		max-height:5%;	
+		z-index:2;
+		color: grey;	
 }
 		
 .instructions
 {
-		border:solid;
-		border-color:white;
+               	border:solid;
+		border-color:royalblue;
 		position:fixed;
 		bottom:10%;
 		right:5%;
 		padding:10px;
-		color:white;	
+		color:black;	
 	
-}
-	
+}	
 
 .footer {
   position: absolute;
