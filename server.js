@@ -58,13 +58,12 @@ client.connect();
 app.get('/getEntries', function (req, res) {
   var results = client.query("select * from entries where expression='${req.query.str}';")
   res.send({"results" : results});
-})
+});
 
 app.get('/newEntry', function (req, res) {
-    var query = `
-    IF EXISTS (SELECT * FROM entries WHERE expression='${req.query.str}')
-      UPDATE entries SET count = count + 1 WHERE expression='${req.query.str}'
-    ELSE
-      INSERT INTO entries VALUES (...)` 
-  res.send('value inserted: ' + req.query.str);
-})
+  var query = `INSERT INTO entries (count, expression)
+                VALUES (1, req.query.str)
+                ON CONFLICT (expression) DO UPDATE SET count = count + 1;` 
+  var results = client.query(query);
+  res.send('value inserted. ' + results);
+});
