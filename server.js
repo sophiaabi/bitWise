@@ -39,11 +39,11 @@ var dbInterface = require('./dbInterface');
 app.use('/', index);
 app.use('/dbInterface', dbInterface)
 
-var port = process.env.PORT;
+var port = 4000//process.env.PORT;
 app.listen(port, function () {
     console.log('Server running on http://localhost:' + port)
 });
-
+/*
 const { Client } = require('pg');
 
 const client = new Client({
@@ -60,3 +60,12 @@ client.query('SELECT table_schema,table_name FROM information_schema.tables;', (
   }
   client.end();
 });
+*/
+app.get('/fuck', function (req, res) {
+  res.send('GET ' + req.query.shit);
+})
+
+// POST method route
+app.post('/newEntry', function (req, res) {
+  res.send('POST request to the homepage')
+})

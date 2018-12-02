@@ -1,9 +1,27 @@
 var UNARY_OPERATORS = ['~', '!'];
-var BINARY_OPERATORS = ['&', '&&', '|', '||', '<<', '>>', '>>>', '^'];
+var BINARY_OPERATORS = ['&&', '||', '<<', '>>>', '^', '&', '|', '>>'];
 var DECIMAL_REGEX = new RegExp(/-?\d+/);
 var HEX_REGEX = new RegExp(/0x[\da-zA-Z]+/)
 
 class EquationObj {
+  static parseIncomingText(text) {
+    //strip spaces
+    var newStr = text.replace(/\s+/g, '');
+    for (let op of UNARY_OPERATORS) {
+      var index = newStr.indexOf(op);
+      if (index >= 0) {
+        return ([op , newStr.substring(index+op.length)]);
+      }
+    }
+    for (let op of BINARY_OPERATORS) {
+      var index = newStr.indexOf(op);
+      if (index >= 0) {
+        return ([newStr.slice(0, index), newStr.substring(index, index+op.length), newStr.slice(index+op.length)]);
+      }
+    }
+    return {};
+  }
+
   isValid() {
     var ret = (this.firstVal != "" && this.firstBase != "" && this.operator != "");
     if (this.isUnaryEquation())
@@ -71,7 +89,8 @@ class EquationObj {
     }
   }
   constructor(text) {
-    var argList = text.split(' ').filter(val => val.length !== 0); //remove empty strings
+    var argList = EquationObj.parseIncomingText(text);
+    console.log(argList);
     if (argList.length === 2) {
       this.firstVal = argList[1];
       this.firstBase = EquationObj.getBase(argList[1]);
@@ -93,20 +112,19 @@ class EquationObj {
 }
 
 function onKeyTyped() {
+  $.ajax({
+  url: '/fuck',
+  data: {"shit": "fuck"},
+  success: function(data) {
+    console.log(data);
+  }
+});
+
   var currentText = document.getElementById('textbox').value;
   var equationObj = new EquationObj(currentText);
   if (equationObj.isValid()) {
     updateResultDiv(equationObj);
   }
-
-  client.query('SELECT * FROM entries;', (err, res) => {
-  if (err) throw err;
-  console.log("result count: " + res.rows.count());
-  for (let row of res.rows) {
-    console.log(JSON.stringify(row));
-  }
-  client.end();
-});
 }
 
 function updateResultDiv(equationObj) {
