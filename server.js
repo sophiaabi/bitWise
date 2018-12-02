@@ -66,5 +66,5 @@ app.get('/newEntry', function (req, res) {
       UPDATE entries SET count = count + 1 WHERE expression='${req.query.str}'
     ELSE
       INSERT INTO entries VALUES (...)` 
-  res.send('POST request to the homepage: ' + req.query.str);
+  res.send('value inserted: ' + req.query.str);
 })

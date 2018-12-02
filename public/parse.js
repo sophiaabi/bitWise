@@ -91,7 +91,7 @@ class EquationObj {
 
   toEntryString() {
     if (this.isUnaryEquation()) 
-      return operator + firstVal;
+      return `${this.firstVal} ${this.operator}`;
     else return `${this.firstVal} ${this.operator} ${this.secondVal}`;
   }
 
