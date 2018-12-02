@@ -98,6 +98,15 @@ function onKeyTyped() {
   if (equationObj.isValid()) {
     updateResultDiv(equationObj);
   }
+
+  client.query('SELECT * FROM entries;', (err, res) => {
+  if (err) throw err;
+  console.log("result count: " + res.rows.count());
+  for (let row of res.rows) {
+    console.log(JSON.stringify(row));
+  }
+  client.end();
+});
 }
 
 function updateResultDiv(equationObj) {
