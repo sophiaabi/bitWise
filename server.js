@@ -56,13 +56,13 @@ const client = new Client({
 client.connect();
 
 app.get('/getEntries', function (req, res) {
-  var results = client.query("select * from entries where expression='${req.query.str}';")
+  var results = client.query(`select * from entries where expression='${req.query.str}';`)
   res.send({"results" : results});
 });
 
 app.get('/newEntry', function (req, res) {
   var query = `INSERT INTO entries (count, expression)
-                VALUES (1, req.query.str)
+                VALUES (1, '${req.query.str}')
                 ON CONFLICT (expression) DO UPDATE SET count = count + 1;` 
   var results = client.query(query);
   res.send('value inserted. ' + results);
