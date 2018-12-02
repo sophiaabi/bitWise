@@ -68,7 +68,3 @@ app.get('/newEntry', function (req, res) {
       INSERT INTO entries VALUES (...)` 
   res.send('POST request to the homepage: ' + req.query.str);
 })
-
-
-"select * from entries where expression=" + exp  + ";"
-//add if doesn't exist, increment if does exist.
