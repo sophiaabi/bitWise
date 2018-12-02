@@ -25,9 +25,9 @@ app.use(methodOverride(function (req, res) {
 var flash = require('express-flash');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-app.use(cookieParser('csci3308'));
+app.use(cookieParser('btwse'));
 app.use(session({
-    secret: 'csci3308',
+    secret: 'btwse',
     resave: false,
     saveUninitialized: true,
     cookie: {maxAge: 60000}
@@ -45,7 +45,7 @@ if (port === undefined)
 app.listen(port, function () {
     console.log('Server running on http://localhost:' + port)
 });
-/*
+
 const { Client } = require('pg');
 
 const client = new Client({
@@ -55,19 +55,20 @@ const client = new Client({
 
 client.connect();
 
-client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
-  if (err) throw err;
-  for (let row of res.rows) {
-    console.log(JSON.stringify(row));
-  }
-  client.end();
-});
-*/
-app.get('/fuck', function (req, res) {
-  res.send('GET ' + req.query.shit);
+app.get('/getEntries', function (req, res) {\
+  var results = client.query("select * from entries where expression='${req.query.str}';")
+  res.send({"results" : results});
 })
 
-// POST method route
-app.post('/newEntry', function (req, res) {
-  res.send('POST request to the homepage')
+app.get('/newEntry', function (req, res) {
+    var query = `
+    IF EXISTS (SELECT * FROM entries WHERE expression='${req.query.str}')
+      UPDATE entries SET count = count + 1 WHERE expression='${req.query.str}'
+    ELSE
+      INSERT INTO entries VALUES (...)` 
+  res.send('POST request to the homepage: ' + req.query.str);
 })
+
+
+"select * from entries where expression=" + exp  + ";"
+//add if doesn't exist, increment if does exist.

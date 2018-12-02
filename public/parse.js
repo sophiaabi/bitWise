@@ -88,9 +88,15 @@ class EquationObj {
         throw `Binary Parsing Failed. Op: {${this.operator}}. Args: {${this.firstVal}, ${this.secondVal}}`;
     }
   }
+
+  toEntryString() {
+    if (this.isUnaryEquation()) 
+      return operator + firstVal;
+    else return `${this.firstVal} ${this.operator} ${this.secondVal}`;
+  }
+
   constructor(text) {
     var argList = EquationObj.parseIncomingText(text);
-    console.log(argList);
     if (argList.length === 2) {
       this.firstVal = argList[1];
       this.firstBase = EquationObj.getBase(argList[1]);
@@ -106,25 +112,30 @@ class EquationObj {
       this.isUnary = false;
     }
     else {
-      this.firstVal = this.secondVal = this.firstBase = this.secondBase = this.operator = ""
+      this.firstVal = this.secondVal = this.firstBase = this.secondBase = this.operator = "";
     }
   }
 }
 
-function onKeyTyped() {
-  $.ajax({
-  url: '/fuck',
-  data: {"shit": "fuck"},
-  success: function(data) {
-    console.log(data);
-  }
-});
-
+var equationObj = {};
+function onKeyTyped(event) {
   var currentText = document.getElementById('textbox').value;
-  var equationObj = new EquationObj(currentText);
+  updateAutosuggest(currentText);  
+  equationObj = new EquationObj(currentText);
   if (equationObj.isValid()) {
     updateResultDiv(equationObj);
   }
+}
+
+function onEnterPressed() {
+  if (equationObj.isValid())
+    $.ajax({
+      url: '/newEntry',
+      data: {"str": equationObj.toEntryString()},       
+      success: function(data) {
+        console.log(data);
+      }
+    })
 }
 
 function updateResultDiv(equationObj) {
@@ -133,5 +144,24 @@ function updateResultDiv(equationObj) {
   resultSpan.setAttribute('truthy', String(!!result));
 }
 
-document.getElementById('textbox').addEventListener('input', onKeyTyped);
+function updateAutosuggest(text) {
+  var input = document.getElementById("textbox");
+  var awesomplete = new Awesomplete(input);
+    $.ajax({
+      url: '/getEntries',
+      data: {"str": text},
+      success: function(data) {
+        awesomplete.list = data.results;
+        input.focus();
+      }
+    });
+}
 
+
+document.getElementById('textbox').addEventListener('input', onKeyTyped);
+document.getElementById('textbox').addEventListener('keypress', function (e) {
+    var key = e.which || e.keyCode;
+    if (key === 13) { // 13 is enter
+      onEnterPressed();
+    }
+});
