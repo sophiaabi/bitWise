@@ -39,7 +39,9 @@ var dbInterface = require('./dbInterface');
 app.use('/', index);
 app.use('/dbInterface', dbInterface)
 
-var port = 4000//process.env.PORT;
+var port = process.env.PORT;
+if (port === undefined)
+  port = 4000;
 app.listen(port, function () {
     console.log('Server running on http://localhost:' + port)
 });
