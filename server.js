@@ -55,7 +55,7 @@ const client = new Client({
 
 client.connect();
 
-app.get('/getEntries', function (req, res) {\
+app.get('/getEntries', function (req, res) {
   var results = client.query("select * from entries where expression='${req.query.str}';")
   res.send({"results" : results});
 })
