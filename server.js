@@ -63,7 +63,7 @@ app.get('/getEntries', function (req, res) {
 app.get('/newEntry', function (req, res) {
   var query = `INSERT INTO entries (count, expression)
                 VALUES (1, '${req.query.str}')
-                ON CONFLICT (expression) DO UPDATE SET count = count + 1;` 
+                ON CONFLICT (expression) DO UPDATE SET entries.count = entries.count + 1;` 
   var results = client.query(query);
   res.send('value inserted. ' + results);
 });
