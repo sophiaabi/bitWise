@@ -68,7 +68,7 @@ header {
   flex-direction: row;
 }
 
-#operator, #n1, #n2, #output {
+#operator, #firstIntSpan, #secondIntSpan, #resultSpan {
   font-size: 20px;
   height: 2em;;
 }
@@ -78,11 +78,11 @@ header {
   top: 2em;
 }
 
-#output {
+#resultSpan {
   margin-top: 8px;
   border-top: 1px solid black;
   padding-top: 3px;
-  font-size: 23px;
+  font-size: 20px;
 }
 
 .button
@@ -91,11 +91,11 @@ header {
 		position:fixed;
 		bottom:-0.3%;
 		right:4%;
-		max-height:5%;	
+		max-height:5%;
 		z-index:2;
-		color: grey;	
+		color: grey;
 }
-		
+
 .instructions
 {
                	border:solid;
@@ -104,9 +104,9 @@ header {
 		bottom:10%;
 		right:5%;
 		padding:10px;
-		color:black;	
-	
-}	
+		color:black;
+
+}
 
 .footer {
   position: absolute;

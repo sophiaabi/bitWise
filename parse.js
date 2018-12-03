@@ -72,7 +72,7 @@ function updateResultDiv(argList, isSolvable) {
       result = findBinarySolution(operator, firstInt, secondInt);
     }
 
-    operatorSpan.textContent = operator;
+    operatorSpan.textContent = "\xa0" + operator;
 
     firstIntSpan.textContent = addLeadingZeroes(firstInt); firstIntSpan.setAttribute('truthy', String(!!firstInt));
     secondIntSpan.textContent = addLeadingZeroes(secondInt); secondIntSpan.setAttribute('truthy', String(!!secondInt));
@@ -101,28 +101,28 @@ function findUnarySolution(operatorString, firstInt) {
 function findBinarySolution(operatorString, firstInt, secondInt) {
   switch (operatorString) {
     case '&':
-      opname.textContent = "   AND";
+      opname.textContent = "\xa0\xa0" + "AND";
       return firstInt & secondInt;
     case '&&':
-      opname.textContent = "   LOGICAL AND";
+      opname.textContent = "\xa0\xa0" + "LOGICAL AND";
       return firstInt && secondInt;
     case '|':
-      opname.textContent = "   OR";
+      opname.textContent = "\xa0\xa0" + "OR";
       return firstInt | secondInt;
     case '||':
-      opname.textContent = "   LOGICAL OR";
+      opname.textContent = "\xa0\xa0" + "LOGICAL OR";
       return firstInt || secondInt;
     case '<<':
-      opname.textContent = "   LEFT SHIFT";
+      opname.textContent = "\xa0\xa0" + "LEFT SHIFT";
       return firstInt << secondInt;
     case '>>':
-      opname.textContent = "   ARITHMETIC RIGHT SHIFT";
+      opname.textContent = "\xa0\xa0" + "ARITHMETIC RIGHT SHIFT";
       return firstInt >> secondInt;
     case '>>>':
-      opname.textContent = "   LOGICAL RIGHT SHIFT";
+      opname.textContent = "\xa0\xa0" + "LOGICAL RIGHT SHIFT";
       return firstInt >>> secondInt;
     case '^':
-      opname.textContent = "   XOR";
+      opname.textContent = "\xa0\xa0" + "XOR";
       return firstInt ^ secondInt;
     default:
       throw `Binary Parsing Failed. Op: {${operatorString}}. Args: {${firstInt}, ${secondInt}}`;
