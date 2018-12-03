@@ -76,7 +76,7 @@ function updateResultDiv(argList, isSolvable) {
 
     firstIntSpan.textContent = addLeadingZeroes(firstInt); firstIntSpan.setAttribute('truthy', String(!!firstInt));
     secondIntSpan.textContent = addLeadingZeroes(secondInt); secondIntSpan.setAttribute('truthy', String(!!secondInt));
-    resultSpan.textContent = result; resultSpan.setAttribute('truthy', String(!!result));
+    resultSpan.textContent = addLeadingZeroes(result) + "\xa0\xa0" + "=" + "\xa0\xa0" + result; resultSpan.setAttribute('truthy', String(!!result));
 
     // resultDiv.style.display = 'block';
   }

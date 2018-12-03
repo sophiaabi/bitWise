@@ -82,7 +82,7 @@ header {
   margin-top: 8px;
   border-top: 1px solid black;
   padding-top: 3px;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .button
@@ -98,7 +98,7 @@ header {
 
 .instructions
 {
-               	border:solid;
+    border:solid;
 		border-color:royalblue;
 		position:fixed;
 		bottom:10%;
