@@ -56,9 +56,16 @@ const client = new Client({
 client.connect();
 
 app.get('/getEntries', function (req, res) {
-  var results = client.query(`select * from entries where '${req.query.str}' LIKE expression;`)
-  console.log("sent " + results.length + "results to client. " + results);
-  res.send({"results" : results});
+    return client.query(`select * from entries where '${req.query.str}' LIKE expression;`, function selectAll(err, rows, fields) {
+    if (err) {
+        throw err;
+    }
+    for (var i in rows) {
+        console.log(rows[i]);
+    }
+    doSomethingWithUsers(rows);
+    res.send({"results" : results.rows});
+  })
 });
 
 app.get('/newEntry', function (req, res) {
