@@ -72,11 +72,15 @@ function updateResultDiv(argList, isSolvable) {
       result = findBinarySolution(operator, firstInt, secondInt);
     }
 
-    operatorSpan.textContent = "\xa0" + operator;
+    operatorSpan.textContent = "\xa0" + operator; //input
+    operatorDiv.textContent = operator; //output
 
     firstIntSpan.textContent = addLeadingZeroes(firstInt); firstIntSpan.setAttribute('truthy', String(!!firstInt));
     secondIntSpan.textContent = addLeadingZeroes(secondInt); secondIntSpan.setAttribute('truthy', String(!!secondInt));
-    resultSpan.textContent = addLeadingZeroes(result) + "\xa0\xa0" + "=" + "\xa0\xa0" + result; resultSpan.setAttribute('truthy', String(!!result));
+
+    resultBin = addLeadingZeroes(result) + "\xa0\xa0" + "=" + "\xa0\xa0" + result;
+    resultBin.innerHTML = resultBin.replace(/0/g, '<span style="color: red;">0</span>').replace(/1/g, '<span style="color: blue;">1</span>');
+    resultSpan.textContent = resultBin; /*resultSpan.setAttribute('truthy', String(!!result));*/
 
     // resultDiv.style.display = 'block';
   }
@@ -88,10 +92,10 @@ function updateResultDiv(argList, isSolvable) {
 function findUnarySolution(operatorString, firstInt) {
   switch (operatorString) {
     case '~':
-      opname.textContent = "   NOT";
+      opname.textContent = "\xa0\xa0" + "NOT";
       return ~firstInt;
     case '!':
-      opname.textContent = "   BINARY NOT";
+      opname.textContent = "\xa0\xa0" + "LOGICAL NOT";
       return !firstInt;
     default:
       throw `Unary Parsing Failed. Op: {${operatorString}}. Arg: {${firstInt}}`;

@@ -69,13 +69,15 @@ header {
 }
 
 #operator, #firstIntSpan, #secondIntSpan, #resultSpan {
-  font-size: 20px;
+  font-size: 25px;
   height: 2em;;
 }
 
-#operator {
+#operatorDiv {
   position: relative;
-  top: 2em;
+  top: 30px;
+  font-size: 25px;
+  padding-right: 10px;
 }
 
 #resultSpan {
