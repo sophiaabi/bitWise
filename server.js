@@ -60,10 +60,11 @@ app.get('/getEntries', function (req, res) {
     if (err) {
         throw err;
     }
+    console.log("printing rows:");
     for (var i in rows) {
         console.log(rows[i]);
     }
-    res.send({"results" : results.rows});
+    res.send({"results" : rows});
   })
 });
 
