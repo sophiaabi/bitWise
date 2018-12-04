@@ -56,7 +56,7 @@ const client = new Client({
 client.connect();
 
 app.get('/getEntries', function (req, res) {
-    return client.query(`select * from entries where '${req.query.str}' LIKE expression;`, function selectAll(err, rows, fields) {
+    return client.query(`select * from entries where expression ~ '^${req.query.str}.';`, function selectAll(err, rows, fields) {
     if (err) {
         throw err;
     }

@@ -91,8 +91,8 @@ class EquationObj {
 
   toEntryString() {
     if (this.isUnaryEquation()) 
-      return `${this.operator} ${this.firstVal}`;
-    else return `${this.firstVal} ${this.operator} ${this.secondVal}`;
+      return `${this.operator}${this.firstVal}`;
+    else return `${this.firstVal}${this.operator}${this.secondVal}`;
   }
 
   constructor(text) {
