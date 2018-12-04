@@ -151,7 +151,7 @@ function updateAutosuggest(text) {
       url: '/getEntries',
       data: {"str": text},
       success: function(data) {
-        awesomplete.list = data.results;
+        awesomplete.list = data.results.rows;
         input.focus();
       }
     });
