@@ -63,7 +63,6 @@ app.get('/getEntries', function (req, res) {
     for (var i in rows) {
         console.log(rows[i]);
     }
-    doSomethingWithUsers(rows);
     res.send({"results" : results.rows});
   })
 });
