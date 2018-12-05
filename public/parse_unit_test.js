@@ -48,7 +48,7 @@ class EquationObj {
     if (DECIMAL_REGEX.test(val))
       return 'd';
     if (HEX_REGEX.test(val))
-      return 'h';
+      return 'h'; 
     return "";
   }
 
