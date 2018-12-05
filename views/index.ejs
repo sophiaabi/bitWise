@@ -11,18 +11,64 @@
 </head>
 
 <body>
+	<div class="navigation">
 	<input class="awesomplete" id="textbox"/>
-	<div style="margin-top: 10px;" id="resultDiv">
-      <div id = "operatorDiv">?</div>
-      <div style="margin-left: 10px">
-        <!-- <input type="text" id="n1" value: "1100"></input><br/>
-        <input type="text" id="n2" value: "0101"></input> -->
-        <span id="firstIntSpan">N/A</span><br/>
-        <span id="secondIntSpan">N/A</span>
-        <div id="resultSpan"></div>
-      </div>
+	  <a href="#" class="active">Home</a>
+	  <a href="#">Popular</a>
+	  <a href="#">Recent</a>
+	  <a href="#">About</a>
 	</div>
 
+	<div class="function">
+	<div id = "operatorDiv">?</div>
+	<div style="margin-left: 10px">
+	<div style="margin-top: 10px;" id="resultDiv">
+		<div id = "operatorDiv">?</div>
+	<div style="margin-left: 10px">
+		<span id="firstIntSpan">N/A</span><br/>
+		<span id="secondIntSpan">N/A</span>
+		<div id="resultSpan"></div>
+	</div>
+	</div>
+
+
+	<a href="javascript:showhide('uniquename')" class="button" >
+		<img src="../qmark.jpg" style="height:auto;width:20px;">
+	</a>
+	<div id="uniquename" style="display:none;" class="instructions">
+		<p> <b>Supported Bitwise Operators:</b> </p>
+	<table style="">
+	<tr>
+	  <td>&</td> <td>bitwise AND</td> 
+	</tr>
+	<tr>
+	  <td>|</td> <td>bitwise inclusive
+	   OR</td> </tr>
+	<tr>
+	  <td>^</td> <td>bitwise exclusive XOR</td>
+	  </rr>
+	<tr>
+	  <td>~ </td><td>bitwise NOT</td> 
+	</tr>
+	<tr>
+	  <td>! </td><td>logical NOT</td> 
+	</tr>
+	<tr>
+	  <td><<</td> <td>left shift</td> 
+	</tr>
+	<tr>
+	  <td>>></td> <td>arithmatic right shift</td>
+	</tr>
+	<tr>
+	  <td>>>></td><td>logical (zero-fill) right shift</td>
+	</tr>
+	</table>
+	<p> <b>Only 1 operator supported at a time</b> </p>
+	</div>
+
+	<div class="footer">
+	  <b>BitW1se:</b> The bitwise fucntion visualizer
+	</div>
 </body>
 	<script src="../public/parse.js"></script>
 </html>
