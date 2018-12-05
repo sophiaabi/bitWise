@@ -68,21 +68,29 @@ class EquationObj {
 
   findBinarySolution() {
     switch (this.operator) {
-      case '&': 
+      case '&':
+        opname.textContent = "\xa0\xa0" + "AND";
         return this.firstVal & this.secondVal;
-      case '&&': 
+      case '&&':
+        opname.textContent = "\xa0\xa0" + "LOGICAL AND";
         return this.firstVal && this.secondVal;
-      case '|': 
+      case '|':
+        opname.textContent = "\xa0\xa0" + "OR";
         return this.firstVal | this.secondVal;
-      case '||': 
+      case '||':
+        opname.textContent = "\xa0\xa0" + "LOGICAL OR";
         return this.firstVal || this.secondVal;
-      case '<<': 
+      case '<<':
+        opname.textContent = "\xa0\xa0" + "LEFT SHIFT";
         return this.firstVal << this.secondVal;
-      case '>>': 
+      case '>>':
+        opname.textContent = "\xa0\xa0" + "ARITHMETIC RIGHT SHIFT";
         return this.firstVal >> this.secondVal;
-      case '>>>': 
+      case '>>>':
+        opname.textContent = "\xa0\xa0" + "LOGICAL RIGHT SHIFT";
         return this.firstVal >>> this.secondVal;
       case '^':
+        opname.textContent = "\xa0\xa0" + "XOR";
         return this.firstVal ^ this.secondVal;
       default:
         throw `Binary Parsing Failed. Op: {${this.operator}}. Args: {${this.firstVal}, ${this.secondVal}}`;
@@ -142,9 +150,9 @@ function onEnterPressed() {
 function updateResultDiv(equationObj) {
   var result = equationObj.getResult();
   argSpan1.textContent = equationObj.firstVal;
-  argSpanB1.textContent = "0x" + addLeadingZeroes(equationObj.firstVal);
+  argSpanB1.textContent = addLeadingZeroes(equationObj.firstVal);
   argSpan2.textContent = equationObj.secondVal;
-  argSpanB2.textContent = "0x" + addLeadingZeroes(equationObj.secondVal);
+  argSpanB2.textContent = addLeadingZeroes(equationObj.secondVal);
   operatorSpan.textContent = equationObj.operator;
 
 

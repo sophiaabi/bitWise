@@ -17,6 +17,8 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
+  background-color: #222;
+  color: #bbb;
 }
 
 header {
@@ -45,7 +47,7 @@ header {
 }
 
 .active {
-  background: darkgrey;
+  background: #222;
 }
 
 .navigation textarea {
@@ -80,13 +82,19 @@ header {
   flex-direction: row;
 }
 
-#operator, #firstIntSpan, #secondIntSpan, #resultSpan {
+#operatorDiv, #firstIntSpan, #secondIntSpan, #resultSpan {
   font-size: 25px;
-  height: 2em;;
+  height: 2em;
+}
+
+#textbox {
+	display: block;
+	float: left;
 }
 
 #operatorDiv {
   position: relative;
+  float:right;
   top: 30px;
   font-size: 25px;
   padding-right: 10px;
