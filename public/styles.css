@@ -127,12 +127,12 @@ header {
 .instructions
 {
     border:solid;
-		border-color:royalblue;
+		border-color:white;
 		position:fixed;
 		bottom:10%;
 		right:5%;
 		padding:10px;
-		color:black;
+		color:white;
 
 }
 
