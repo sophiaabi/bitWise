@@ -69,31 +69,31 @@ class EquationObj {
       }
     }
 
-  findBinarySolution() {
+   findBinarySolution() {
     switch (this.operator) {
       case '&':
-        // opname.textContent = "\xa0\xa0" + "AND";
+        opname.textContent = "\xa0\xa0" + "AND";
         return this.firstVal & this.secondVal;
       case '&&':
-        // opname.textContent = "\xa0\xa0" + "LOGICAL AND";
+        opname.textContent = "\xa0\xa0" + "LOGICAL AND";
         return this.firstVal && this.secondVal;
       case '|':
-        // opname.textContent = "\xa0\xa0" + "OR";
+        opname.textContent = "\xa0\xa0" + "OR";
         return this.firstVal | this.secondVal;
       case '||':
-        // opname.textContent = "\xa0\xa0" + "LOGICAL OR";
+        opname.textContent = "\xa0\xa0" + "LOGICAL OR";
         return this.firstVal || this.secondVal;
       case '<<':
-        // opname.textContent = "\xa0\xa0" + "LEFT SHIFT";
+        opname.textContent = "\xa0\xa0" + "LEFT SHIFT";
         return this.firstVal << this.secondVal;
       case '>>':
-        // opname.textContent = "\xa0\xa0" + "ARITHMETIC RIGHT SHIFT";
+        opname.textContent = "\xa0\xa0" + "ARITHMETIC RIGHT SHIFT";
         return this.firstVal >> this.secondVal;
       case '>>>':
-        // opname.textContent = "\xa0\xa0" + "LOGICAL RIGHT SHIFT";
+        opname.textContent = "\xa0\xa0" + "LOGICAL RIGHT SHIFT";
         return this.firstVal >>> this.secondVal;
       case '^':
-        // opname.textContent = "\xa0\xa0" + "XOR";
+        opname.textContent = "\xa0\xa0" + "XOR";
         return this.firstVal ^ this.secondVal;
       default:
         throw `Binary Parsing Failed. Op: {${this.operator}}. Args: {${this.firstVal}, ${this.secondVal}}`;
