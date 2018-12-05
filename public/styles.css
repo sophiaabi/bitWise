@@ -11,14 +11,21 @@
 }
 
 html, body {
-  margin: 0;
+  margin: 0;  
+}
+html {
+  background-image: linear-gradient(to bottom right, #777, #111);
+  height: 100%;
 }
 
 body {
   display: flex;
   flex-direction: column;
-  background-color: #222;
   color: #bbb;
+  height: 100%
+	margin: 0;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
 
 header {
@@ -88,12 +95,11 @@ header {
 }
 
 #textbox {
-	display: block;
 	float: left;
+	justify-content: flex-start;
 }
 
 #operatorDiv {
-  position: relative;
   float:right;
   top: 30px;
   font-size: 25px;
