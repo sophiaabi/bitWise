@@ -141,6 +141,12 @@ function onEnterPressed() {
 
 function updateResultDiv(equationObj) {
   var result = equationObj.getResult();
+  argSpan1.textContent = equationObj.firstVal;
+  argSpanB1.textContent = "0x" + addLeadingZeroes(equationObj.firstVal);
+  argSpan2.textContent = equationObj.secondVal;
+  argSpanB2.textContent = "0x" + addLeadingZeroes(equationObj.secondVal);
+  operatorSpan.textContent = equationObj.operator;
+
 
   operatorDiv.textContent = equationObj.operator;
 
@@ -176,9 +182,9 @@ function updateAutosuggest(text) {
         }
         console.log(expressionList);
         awesomplete.list = expressionList;
-        input.focus();
       }
     });
+  input.focus();
 }
 
 function toggleHelp() {
