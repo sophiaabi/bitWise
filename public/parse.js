@@ -181,6 +181,14 @@ function updateAutosuggest(text) {
     });
 }
 
+function toggleHelp() {
+    var x = document.getElementById("helpDiv");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
 
 document.getElementById('textbox').addEventListener('input', onKeyTyped);
 document.getElementById('textbox').addEventListener('keypress', function (e) {

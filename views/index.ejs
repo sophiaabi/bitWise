@@ -32,38 +32,37 @@
 	</div>
 
 
-	<a href="javascript:showhide('uniquename')" class="button" >
-		<img src="../qmark.jpg" style="height:auto;width:20px;">
+	<a onclick="toggleHelp()" class="button" >
+		<img src="./public/qmark.jpg" style="height:auto;width:20px;">
 	</a>
-	<div id="uniquename" style="display:none;" class="instructions">
+	<div id="helpDiv" style="display:none;" class="instructions">
 		<p> <b>Supported Bitwise Operators:</b> </p>
-	<table style="">
-	<tr>
-	  <td>&</td> <td>bitwise AND</td> 
-	</tr>
-	<tr>
-	  <td>|</td> <td>bitwise inclusive
-	   OR</td> </tr>
-	<tr>
-	  <td>^</td> <td>bitwise exclusive XOR</td>
-	  </rr>
-	<tr>
-	  <td>~ </td><td>bitwise NOT</td> 
-	</tr>
-	<tr>
-	  <td>! </td><td>logical NOT</td> 
-	</tr>
-	<tr>
-	  <td><<</td> <td>left shift</td> 
-	</tr>
-	<tr>
-	  <td>>></td> <td>arithmatic right shift</td>
-	</tr>
-	<tr>
-	  <td>>>></td><td>logical (zero-fill) right shift</td>
-	</tr>
-	</table>
-	<p> <b>Only 1 operator supported at a time</b> </p>
+		<table style="">
+			<tr>
+				<td>&</td><td>bitwise AND</td> 
+			</tr>
+			<tr>
+				<td>|</td><td>bitwise inclusive OR</td></tr>
+			<tr>
+			  	<td>^</td><td>bitwise exclusive XOR</td>
+		  	</tr>
+			<tr>
+			  	<td>~</td><td>bitwise NOT</td> 
+			</tr>
+			<tr>
+			  	<td>!</td><td>logical NOT</td> 
+			</tr>
+			<tr>
+			  	<td><<</td><td>left shift</td> 
+			</tr>
+			<tr>
+			  	<td>>></td><td>arithmatic right shift</td>
+			</tr>
+			<tr>
+			  	<td>>>></td><td>logical (zero-fill) right shift</td>
+			</tr>
+		</table>
+		<p> <b>Only 1 operator supported at a time</b> </p>
 	</div>
 
 	<div class="footer">
