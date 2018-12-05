@@ -18,6 +18,18 @@
     "require": "^2.4.20"
   },
   "devDependencies": {},
+    "mocha": {
+    "version": "5.2.0",
+    "resolved": "https://registry.npmjs.org/mocha/-/mocha-5.2.0.tgz",
+    "integrity": "sha512-2IUgKDhc3J7Uug+FxMXuqIyYzH7gJjXECKe/w43IGgQHTSj3InJi+yAA7T24L9bQMRKiUEHxEX37G5JpVUGLcQ==",
+    "dependencies": {
+      "debug": {
+        "version": "3.1.0",
+        "resolved": "https://registry.npmjs.org/debug/-/debug-3.1.0.tgz",
+        "integrity": "sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g=="
+      }
+    }
+  },
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
