@@ -153,7 +153,7 @@ function updateResultDiv(equationObj) {
 }
 
 function addLeadingZeroes(binValue) {
-  binValue = ((+binValue).toString(2));
+  binValue = (+binValue).toString(2);
   let i = 8 - (binValue.length % 8);
   let output = "";
   while (i > 0) {
