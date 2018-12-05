@@ -120,7 +120,8 @@ class EquationObj {
 var equationObj = {};
 function onKeyTyped(event) {
   var currentText = document.getElementById('textbox').value;
-  updateAutosuggest(currentText);  
+  if (currentText.length > 0)
+    updateAutosuggest(currentText);  
   equationObj = new EquationObj(currentText);
   if (equationObj.isValid()) {
     updateResultDiv(equationObj);
@@ -140,8 +141,26 @@ function onEnterPressed() {
 
 function updateResultDiv(equationObj) {
   var result = equationObj.getResult();
-  resultSpan.textContent = result;
-  resultSpan.setAttribute('truthy', String(!!result));
+
+  operatorDiv.textContent = equationObj.operator;
+
+  firstIntSpan.textContent = addLeadingZeroes(equationObj.firstVal); firstIntSpan.setAttribute('truthy', String(!!equationObj.firstVal));
+  secondIntSpan.textContent = addLeadingZeroes(equationObj.secondVal); secondIntSpan.setAttribute('truthy', String(!!equationObj.secondVal));
+
+  resultBin = addLeadingZeroes(result) + "\xa0\xa0" + "=" + "\xa0\xa0" + result;
+  resultBin.innerHTML = resultBin.replace(/0/g, '<span style="color: red;">0</span>').replace(/1/g, '<span style="color: blue;">1</span>');
+  resultSpan.textContent = resultBin;
+}
+
+function addLeadingZeroes(binValue) {
+  binValue = ((+binValue).toString(2));
+  let i = 8 - (binValue.length % 8);
+  let output = "";
+  while (i > 0) {
+    output += "0";
+    i--;
+  }
+  return (output + binValue);
 }
 
 function updateAutosuggest(text) {
@@ -153,7 +172,7 @@ function updateAutosuggest(text) {
       success: function(data) {
         let expressionList = [];
         for (var i in data.results.rows) {
-          expressionList.push(data.results.rows[i]);
+          expressionList.push(data.results.rows[i].expression);
         }
         console.log(expressionList);
         awesomplete.list = expressionList;
