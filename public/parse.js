@@ -2,6 +2,7 @@ var UNARY_OPERATORS = ['~', '!'];
 var BINARY_OPERATORS = ['&&', '||', '<<', '>>>', '^', '&', '|', '>>'];
 var DECIMAL_REGEX = new RegExp(/-?\d+/);
 var HEX_REGEX = new RegExp(/0x[\da-zA-Z]+/)
+var BINARY_REGEX = new RegExp(/b[01]+/)
 
 class EquationObj {
   static parseIncomingText(text) {
@@ -42,6 +43,8 @@ class EquationObj {
   }
 
   static getBase(val) {
+    if (BINARY_REGEX.test(val))
+      return 'b';
     if (DECIMAL_REGEX.test(val))
       return 'd';
     if (HEX_REGEX.test(val))
@@ -106,12 +109,21 @@ class EquationObj {
   constructor(text) {
     var argList = EquationObj.parseIncomingText(text);
     if (argList.length === 2) {
+      if (argList[1].substr(0,1)=='b') { // Binary Input
+          argList[1] = argList[1].slice(1);
+         } 
+
       this.firstVal = argList[1];
       this.firstBase = EquationObj.getBase(argList[1]);
       this.operator = EquationObj.getOperator(argList[0], UNARY_OPERATORS);
       this.isUnary = true;
     }
     else if (argList.length === 3) {
+         if (argList[0].substr(0,1)=='b' && argList[2].substr(0,1)=='b') { //  Binary Input
+          argList[0] = argList[0].slice(1);
+          argList[2] = argList[2].slice(1); 
+         } 
+         
       this.firstVal = argList[0];
       this.firstBase = EquationObj.getBase(argList[0]);
       this.secondVal = argList[2];
@@ -124,6 +136,7 @@ class EquationObj {
     }
   }
 }
+
 
 var equationObj = {};
 function onKeyTyped(event) {
