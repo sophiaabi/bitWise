@@ -44,13 +44,10 @@ class EquationObj {
 
   static getBase(val) {
     if (BINARY_REGEX.test(val))
-      // console.log(val);
       return 'b';
     if (DECIMAL_REGEX.test(val))
-      // console.log(val);
       return 'd';
     if (HEX_REGEX.test(val))
-      // console.log(val);
       return 'h';
     return "";
   }
@@ -219,5 +216,4 @@ function toggleHelp() {
     }
 }
 module.exports.EquationObj = EquationObj;
-module.exports.opname;
 ;
