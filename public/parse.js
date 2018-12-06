@@ -101,7 +101,7 @@ class EquationObj {
   }
 
   toEntryString() {
-    if (this.isUnaryEquation()) 
+    if (this.isUnaryEquation())
       return `${this.operator}${this.firstVal}`;
     else return `${this.firstVal}${this.operator}${this.secondVal}`;
   }
@@ -111,7 +111,7 @@ class EquationObj {
     if (argList.length === 2) {
       if (argList[1].substr(0,1)=='b') { // Binary Input
           argList[1] = argList[1].slice(1);
-         } 
+         }
 
       this.firstVal = argList[1];
       this.firstBase = EquationObj.getBase(argList[1]);
@@ -121,9 +121,9 @@ class EquationObj {
     else if (argList.length === 3) {
          if (argList[0].substr(0,1)=='b' && argList[2].substr(0,1)=='b') { //  Binary Input
           argList[0] = argList[0].slice(1);
-          argList[2] = argList[2].slice(1); 
-         } 
-         
+          argList[2] = argList[2].slice(1);
+         }
+
       this.firstVal = argList[0];
       this.firstBase = EquationObj.getBase(argList[0]);
       this.secondVal = argList[2];
@@ -142,7 +142,7 @@ var equationObj = {};
 function onKeyTyped(event) {
   var currentText = document.getElementById('textbox').value;
   if (currentText.length > 0)
-    updateAutosuggest(currentText);  
+    updateAutosuggest(currentText);
   equationObj = new EquationObj(currentText);
   if (equationObj.isValid()) {
     updateResultDiv(equationObj);
@@ -153,7 +153,7 @@ function onEnterPressed() {
   if (equationObj.isValid())
     $.ajax({
       url: '/newEntry',
-      data: {"str": equationObj.toEntryString()},       
+      data: {"str": equationObj.toEntryString()},
       success: function(data) {
         console.log(data);
       }
@@ -180,14 +180,27 @@ function updateResultDiv(equationObj) {
 }
 
 function addLeadingZeroes(binValue) {
-  binValue = (+binValue).toString(2);
-  let i = 8 - (binValue.length % 8);
-  let output = "";
-  while (i > 0) {
-    output += "0";
-    i--;
+  binValue = ((+binValue).toString(2));
+  switch (binValue.length % 8) {
+    case 0:
+      return binValue;
+    case 1:
+      return "0000000" + binValue;
+    case 2:
+      return "000000" + binValue;
+    case 3:
+      return "00000" + binValue;
+    case 4:
+      return "0000" + binValue;
+    case 5:
+      return "000" + binValue;
+    case 6:
+      return "00" + binValue;
+    case 7:
+      return "0" + binValue;
+    default:
+      console.log("Ya done goofed");
   }
-  return (output + binValue);
 }
 
 function updateAutosuggest(text) {
