@@ -13,6 +13,10 @@ describe('Decimal Test Cases', function() {
     var equationObj = new app.EquationObj("5>>1");
         assert.equal(equationObj.getResult(), 2);
     });
+  it('should return the correct decimal result from ~ unary operator', function() {
+    var equationObj = new app.EquationObj("~-1");
+        assert.equal(equationObj.getResult(), 0);
+    });
 });
 
 describe('Hexadecimal Test Cases', function() {

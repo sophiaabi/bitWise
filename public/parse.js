@@ -109,9 +109,6 @@ class EquationObj {
   constructor(text) {
     var argList = EquationObj.parseIncomingText(text);
     if (argList.length === 2) {
-      if (argList[1].substr(0,1)=='b') { // Binary Input
-          argList[1] = argList[1].slice(1);
-         }
 
       this.firstVal = argList[1];
       this.firstBase = EquationObj.getBase(argList[1]);
@@ -119,11 +116,6 @@ class EquationObj {
       this.isUnary = true;
     }
     else if (argList.length === 3) {
-         if (argList[0].substr(0,1)=='b' && argList[2].substr(0,1)=='b') { //  Binary Input
-          argList[0] = argList[0].slice(1);
-          argList[2] = argList[2].slice(1);
-         }
-
       this.firstVal = argList[0];
       this.firstBase = EquationObj.getBase(argList[0]);
       this.secondVal = argList[2];
