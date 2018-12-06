@@ -2,30 +2,23 @@
 	font-weight: bold;
 }
 
-[truthy="true"] {
-	color: green;
-}
-
-[truthy="false"] {
-	color: red;
-}
-
 html, body {
-  margin: 0;  
+  margin: 0;
 }
+
 html {
-  background-image: linear-gradient(to bottom right, #777, #111);
   height: 100%;
 }
 
 body {
   display: flex;
   flex-direction: column;
-  color: #bbb;
+  color: white;
   height: 100%
 	margin: 0;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+	background-image: linear-gradient(to top left, black, grey);
 }
 
 header {
@@ -54,10 +47,10 @@ header {
 }
 
 .active {
-  background: #222;
+  background: darkgrey;
 }
 
-.navigation textarea {
+#textbox {
   margin: 10px;
   font-size: 20px;
   margin-right: auto;
@@ -94,11 +87,6 @@ header {
   height: 2em;
 }
 
-#textbox {
-	float: left;
-	justify-content: flex-start;
-}
-
 #operatorDiv {
   float:right;
   top: 30px;
@@ -115,30 +103,35 @@ header {
 
 .button
 {
-		height:50px;
-		position:fixed;
-		bottom:-0.3%;
-		right:4%;
-		max-height:5%;
-		z-index:2;
-		color: grey;
+	height:50px;
+	position:fixed;
+	bottom:-0.3%;
+	right:4%;
+	max-height:5%;
+	z-index:2;
+	color: grey;
+}
+
+#helpDiv {
+	background: white;
 }
 
 .instructions
 {
-    border:solid;
-		border-color:white;
-		position:fixed;
-		bottom:10%;
-		right:5%;
-		padding:10px;
-		color:white;
+  border:solid;
+	border-color:white;
+	position:fixed;
+	bottom:10%;
+	right:5%;
+	padding:10px;
+	color:white;
 
 }
 
 .footer {
   position: absolute;
   bottom: 0;
+	left: 0;
   width: -webkit-fill-available;
   background-color: grey;
   color: white;
