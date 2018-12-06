@@ -168,15 +168,39 @@ function updateResultDiv(equationObj) {
   argSpanB2.textContent = addLeadingZeroes(equationObj.secondVal);
   operatorSpan.textContent = equationObj.operator;
 
+  initB1 = addLeadingZeroes(equationObj.firstVal);
+  initB2 = addLeadingZeroes(equationObj.secondVal);
+
+  matchLength(initB1, initB2);
 
   operatorDiv.textContent = equationObj.operator;
 
-  firstIntSpan.textContent = addLeadingZeroes(equationObj.firstVal); firstIntSpan.setAttribute('truthy', String(!!equationObj.firstVal));
-  secondIntSpan.textContent = addLeadingZeroes(equationObj.secondVal); secondIntSpan.setAttribute('truthy', String(!!equationObj.secondVal));
+  // firstIntSpan.textContent = addLeadingZeroes(equationObj.firstVal); firstIntSpan.setAttribute('truthy', String(!!equationObj.firstVal));
+  // secondIntSpan.textContent = addLeadingZeroes(equationObj.secondVal); secondIntSpan.setAttribute('truthy', String(!!equationObj.secondVal));;
+  firstIntSpan.textContent = FIS;
+  secondIntSpan.textContent = SIS;
 
   resultBin = addLeadingZeroes(result) + "\xa0\xa0" + "=" + "\xa0\xa0" + result;
   resultBin.innerHTML = resultBin.replace(/0/g, '<span style="color: red;">0</span>').replace(/1/g, '<span style="color: blue;">1</span>');
   resultSpan.textContent = resultBin;
+}
+
+var FIS;
+var SIS;
+
+function matchLength(b1, b2) {
+  if (b1.length > b2.length) {
+    b2 = "00000000" + b2;
+    matchLength(b1, b2);
+  }
+  else if (b2.length > b1.length) {
+    b1 = "00000000" + b1;
+    matchLength(b1, b2);
+  }
+  else if (b1.length === b2.length) {
+    FIS = b1;
+    SIS = b2;
+  }
 }
 
 function addLeadingZeroes(binValue) {
