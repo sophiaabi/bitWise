@@ -58,7 +58,7 @@ client.connect();
 app.get('/getEntries', function (req, res) {
     return client.query(`select expression from entries where expression ~ '^${req.query.str}.' order by count;`, function selectAll(err, rows, fields) {
     if (err) {
-        throw err;
+        res.send({"results": []});
     }
     res.send({"results" : rows});
   })
