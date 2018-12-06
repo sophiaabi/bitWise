@@ -198,18 +198,18 @@ function addLeadingZeroes(binValue) {
 function updateAutosuggest(text) {
   var input = document.getElementById("textbox");
   var awesomplete = new Awesomplete(input);
-    $.ajax({
-      url: '/getEntries',
-      data: {"str": text},
-      success: function(data) {
-        let expressionList = [];
-        for (var i in data.results.rows) {
-          expressionList.push(data.results.rows[i].expression);
-        }
-        console.log(expressionList);
-        awesomplete.list = expressionList;
+  $.ajax({
+    url: '/getEntries',
+    data: {"str": text},
+    success: function(data) {
+      let expressionList = [];
+      for (var i in data.results.rows) {
+        expressionList.push(data.results.rows[i].expression);
       }
-    });
+      console.log(expressionList);
+      awesomplete.list = expressionList;
+    }
+  });
   input.focus();
 }
 

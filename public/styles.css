@@ -1,3 +1,12 @@
+.awesomplete ul {
+    list-style: none;
+    color: #AAA;
+    background: #333 !important;
+}
+.awesomplete ul:before {
+    background: #333 !important;
+}
+
 .result {
 	font-weight: bold;
 }
