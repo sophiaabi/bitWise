@@ -9,11 +9,13 @@ Check out the website here: http://bitw1se.herokuapp.com/
 
 
 ### Repo Organization & Build Info 
+```
 /public: Contains the autocomplete feature files as well as the main javascript file for parsing user input and returning the correct binary operation output.
 /test: Contains the unit tests using the Mocha javascript testing framework. 
 	- To test, install Mocha through NPM. Then, change directory to the root of the project and run the command `mocha` to test.
 /views: contains the template for our website.
 Our database files are in the root directory.
+```
 
 ### Run Locally
 1. Install [PostgreSQL](https://www.postgresql.org/) and run the daemon in the background. Install Node.js and NPM.
