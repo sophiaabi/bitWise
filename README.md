@@ -25,4 +25,4 @@ Our database files are in the root directory.
 
 Made for CSCI 3308
 
-Members: Andy Stieber, Jay Hayward, Jackson Boynton, Shelby Keupp, Sophia AbiEzzi, Tiffany Phan
+Members: Andy Stieber, Jay Hayward, Sophia AbiEzzi, Tiffany Phan, Jackson Boynton, Shelby Keupp
